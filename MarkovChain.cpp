@@ -6,15 +6,14 @@ int MarkovChain::command(string command) {
     } else if (command == "open") {
         string name;
         cin >> name;
-        
+
         return addStat(name);
     }
-    
+
     return -2;
 }
 
 int MarkovChain::addStat(string fileName) {
-    
     return 0;
 }
 

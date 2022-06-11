@@ -10,7 +10,7 @@ class MarkovChain {
 public:
     int command(string command);
     int addStat(string fileName);
-    
+
     Mat getMatrix();
 
     MarkovChain();

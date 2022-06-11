@@ -20,17 +20,17 @@ int main() {
             int result = markovChain.command(command);
             if (result != 0) {
                 switch (result) {
-                    case -2:
-                        cout << result << ": wrong command" << endl;
-                        break;
-                    case 1:
-                        cout << result << ": cannot open file" << endl;
-                        break;
-                    case -3:
-                        return 0;
-                        break;
-                    default:
-                        cout << result << ": error" << endl;
+                case -2:
+                    cout << result << ": wrong command" << endl;
+                    break;
+                case 1:
+                    cout << result << ": cannot open file" << endl;
+                    break;
+                case -3:
+                    return 0;
+                    break;
+                default:
+                    cout << result << ": error" << endl;
                 }
             }
             //cout << command << endl;
@@ -41,7 +41,7 @@ int main() {
                 window.at<Vec3b>(i, j)[1] = markovChain.getMatrix().at<float>(i / 2, j / 2) * 256;
             }
         }
-        
+
         imshow("Markov Chain", window);
         key = waitKey(10);
     }

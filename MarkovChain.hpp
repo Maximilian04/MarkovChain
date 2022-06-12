@@ -1,7 +1,11 @@
+#pragma once
+
 #include <opencv2/opencv.hpp>
 #include <string>
 #include <fstream>
 #include <vector>
+
+#include "Console.hpp"
 
 using namespace std;
 using namespace cv;

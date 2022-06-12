@@ -4,8 +4,7 @@ int MarkovChain::command(string command) {
     if (command == "exit") {
         return -3;
     } else if (command == "open") {
-        string name;
-        cin >> name;
+        string name = Console::waitInput();
 
         return addStat(name);
     }

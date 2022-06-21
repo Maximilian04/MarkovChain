@@ -8,9 +8,7 @@ int Mouse::y = 0;
 Mouse::Button Mouse::button = Mouse::Button::NO;
 
 Mouse::Button Mouse::getButton() {
-    Button res = button;
-    button = Button::NO;
-    return res;
+    return button;
 }
 
 void Mouse::callBack(int event, int _x, int _y, int flags, void* userdata) {
@@ -41,6 +39,8 @@ void Mouse::callBack(int event, int _x, int _y, int flags, void* userdata) {
 }
 
 void Mouse::waitKey(int delay) {
+    button = Button::NO;
+    
     key = cv::waitKey(delay);
 }
 

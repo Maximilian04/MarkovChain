@@ -1,3 +1,4 @@
+#include "Drawer.hpp"
 #include "MarkovChain.hpp"
 #include "Console.hpp"
 #include "Mouse.hpp"
@@ -11,10 +12,10 @@ using namespace cv;
 int main() {
     setlocale(LC_ALL, "Russian");
 
-    Mat window(512, 512, CV_8UC3);
     string command;
 
     MarkovChain markovChain;
+    Drawer drawer;
 
     Console::start();
 
@@ -41,21 +42,11 @@ int main() {
                     cout << result << ": error" << endl;
                 }
             }
-            //cout << command << endl;
         }
 
-        for (int i = 0; i < window.rows; ++i) {
-            for (int j = 0; j < window.cols; ++j) {
-                window.at<Vec3b>(i, j)[1] = markovChain.getMatrix().at<float>(i / 2, j / 2) * 255;
-                // (prev, curr)
-            }
-        }
+        drawer.render(markovChain);
 
-        //putText(window,
-        //    "!eof : " + to_string(cin.rdbuf()->in_avail()),
-        //    Point(0, 10), cv::FONT_HERSHEY_PLAIN, 1.0, Scalar(255, 255, 255));
-
-        imshow("Markov Chain", window);
+        imshow("Markov Chain", drawer.getWindow());
         Mouse::waitKey(10);
     }
 

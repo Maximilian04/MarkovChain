@@ -4,7 +4,7 @@ project(MarkovChain VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(MarkovChain main.cpp MarkovChain.cpp Console.cpp Mouse.cpp)
+add_executable(MarkovChain main.cpp Drawer.cpp MarkovChain.cpp Console.cpp Mouse.cpp)
 
 include_directories("D:/programming/libraries/opencv-4.5.5/build-release/install/include")
 target_link_libraries(MarkovChain "D:/programming/libraries/opencv-4.5.5/build-release/install/x64/mingw/bin/libopencv_world455.dll"

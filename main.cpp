@@ -1,5 +1,6 @@
 #include "MarkovChain.hpp"
 #include "Console.hpp"
+#include "Mouse.hpp"
 
 #include <opencv2/opencv.hpp>
 #include <iostream>
@@ -17,6 +18,9 @@ int main() {
     MarkovChain markovChain;
 
     Console::start();
+
+    namedWindow("Markov Chain");
+    setMouseCallback("Markov Chain", Mouse::callBack);
 
     while (key != 27) {
         if (Console::hasGotInput()) {

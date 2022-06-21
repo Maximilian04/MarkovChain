@@ -12,7 +12,6 @@ int main() {
     setlocale(LC_ALL, "Russian");
 
     Mat window(512, 512, CV_8UC3);
-    int key = -1;
     string command;
 
     MarkovChain markovChain;
@@ -22,7 +21,7 @@ int main() {
     namedWindow("Markov Chain");
     setMouseCallback("Markov Chain", Mouse::callBack);
 
-    while (key != 27) {
+    while (Mouse::getKey() != 27) {
         if (Console::hasGotInput()) {
             command = Console::getInput();
 
@@ -57,7 +56,7 @@ int main() {
         //    Point(0, 10), cv::FONT_HERSHEY_PLAIN, 1.0, Scalar(255, 255, 255));
 
         imshow("Markov Chain", window);
-        key = waitKey(10);
+        Mouse::waitKey(10);
     }
 
     cout << "Program finished 0" << endl;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MarkovChain.hpp"
+#include "Mouse.hpp"
 
 #include <opencv2/opencv.hpp>
 
@@ -14,5 +15,11 @@ public:
 
     const Mat& getWindow();
 private:
+    void renderMatrix(MarkovChain& markovChain);
+    void renderPopup();
+    void updatePopup();
+
     Mat window;
+    bool isPopupActive;
+    Vec2i popupPos;
 };

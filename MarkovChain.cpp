@@ -13,6 +13,31 @@ int MarkovChain::command(string command) {
 }
 
 int MarkovChain::addStat(string fileName) {
+    ifstream input(fileName);
+    if (!input.is_open()) {
+        return 1; // RETURN 1 FILE IS NOT OPENED
+    }
+
+    unsigned char symbol, prevSymbol = '\n';
+    while (!input.eof()) {
+        input >> symbol;
+
+        // cout << symbol << " " << (int) symbol << endl;
+        statistics[(unsigned int)prevSymbol][(unsigned int)symbol]++;
+        prevSymbol = symbol;
+    }
+
+    for (int prev = 0; prev < 256; ++prev) {
+        int sum = 0;
+        for (int curr = 0; curr < 256; ++curr) {
+            sum += statistics[prev][curr];
+        }
+        for (int curr = 0; curr < 256; ++curr) {
+            matrix.at<float>(prev, curr) = (float)statistics[prev][curr] / sum;
+        }
+    }
+    cout << "ok" << endl;
+
     return 0;
 }
 
